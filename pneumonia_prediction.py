@@ -229,18 +229,18 @@ datagen.fit(x_train)
     Conv2D - Each block has a Dense layer, to recalculate the weights from filters, to each layer
     more filters are applied, so we can have more precision in the pixels.
     
-    BatchNormalization - After the new calculations, a new normalization of the output values ​​is performed,
+    BatchNormalization - After the new calculations, a new normalization of the output values is performed,
     so we maintain efficiency in calculations and improving accuracy.
     
     MaxPooling2D - Used to prioritize the highest output values, as these have the greatest impact.
     
-    Dropout - To avoid the outlier, Dropout is applied where values ​​that differ
+    Dropout - To avoid the outlier, Dropout is applied where values that differ
     many of the others are discarded.
 '''
 
 model = Sequential()
 
-# Primeiro bloco (Entrada)
+# First Block (Input)
 model.add(Conv2D(32 , (3,3) , strides = 1 , padding = 'same' , activation = 'relu' , input_shape = INPUT_SHAPE))
 model.add(BatchNormalization())
 model.add(MaxPooling2D((2,2) , strides = 2 , padding = 'same'))
@@ -322,14 +322,14 @@ predictions = predictions.reshape(1,-1)[0]
 '''
     The data about the model is displayed:
         
-    Accuracy: The hit rate minus error, placed in%
+    Accuracy: The hit rate minus error, placed in %
     Recall: The rate of hit frequency, how much do you hit each error?
     f1-score: F1 is the combination of precision and recall in a single score.
 '''
 
 print(classification_report(y_test, predictions, target_names = ['Pneumonia (Class 0)','Normal (Class 1)']))
 
-# The precision matrix is ​​created to visualize the number of correct cases
+# The precision matrix is created to visualize the number of correct cases
 cm = confusion_matrix(y_test,predictions)
 cm = pd.DataFrame(cm , index = ['0','1'] , columns = ['0','1'])   
  
