@@ -1,6 +1,6 @@
 # Chest X-Ray Pneumonia
 
-![Chest X-Ray Pneumonia](https://imgur.com/pCbeDRY)
+[Imgur](https://imgur.com/pCbeDRY)
 
 This project aims to predict cases of pneumonia, using the patient's chest x-ray.
 
